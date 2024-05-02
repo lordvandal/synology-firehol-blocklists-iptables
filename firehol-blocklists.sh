@@ -87,7 +87,9 @@ delete_chain_reference() {
 
 delete_chain() {
 	if $IPTABLES -L "$CHAIN" -n &> /dev/null; then
-		delete_chain_reference INPUT
+#               delete_chain_reference INPUT
+                # delete reference from DEFAULT_INPUT chain instead of INPUT (thanks Synology, WTF?!)
+                delete_chain_reference DEFAULT_INPUT
 #		delete_chain_reference FORWARD
 		if $IPTABLES -F "$CHAIN" && $IPTABLES -X "$CHAIN"; then
 			echo "'$CHAIN' chain removed from iptables."
