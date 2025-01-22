@@ -103,8 +103,8 @@ delete_chain() {
 }
 
 download_rules() {
-	TMP_FILE="$(mktemp)"
-	WHITELIST_TMP_FILE="$(mktemp)"
+	local TMP_FILE="$(mktemp)"
+	local WHITELIST_TMP_FILE="$(mktemp)"
 	
 	for URL in $URLS; do
 		# get a copy of the spam list
@@ -161,7 +161,7 @@ download_rules() {
 }
 
 update_iptables() {
-	TMP_FILE="$(mktemp)"
+	local TMP_FILE="$(mktemp)"
 
 	# refuse to run if the cache file looks insane
 	if [ ! -r "$CACHE_FILE" ]; then
