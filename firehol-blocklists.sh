@@ -199,7 +199,7 @@ update_iptables() {
 	$IPTABLES_RESTORE -n -T filter < "$TMP_FILE"
 	echo "'$CHAIN' chain updated with latest rules."
 
-#	rm -f $TMP_FILE
+	rm -f $TMP_FILE
 }
 
 download_rules_and_update_iptables() {
